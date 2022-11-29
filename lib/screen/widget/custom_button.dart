@@ -8,7 +8,7 @@ class CustomButton extends StatelessWidget {
     required this.text,
     required this.onTap,
     this.color = Colors.red,
-    this.tclr = Colors.white,
+    this.tclr = Colors.amber,
   }) : super(key: key);
   final String text;
   final VoidCallback onTap;
