@@ -1,5 +1,6 @@
 import 'package:blood_donor/dimension/dimension.dart';
 import 'package:blood_donor/screen/homepage.dart';
+import 'package:blood_donor/screen/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -87,27 +88,27 @@ class _SignInPageState extends State<SignInPage> {
                     SizedBox(height: s50),
                     Text(
                       'Phone',
-                      style: GoogleFonts.roboto(fontSize: s12),
+                      style: GoogleFonts.roboto(fontSize: s16),
                     ),
                     SizedBox(
-                      height: s25,
+                      height: s10 * 4,
                       child: TextFormField(
                         decoration: InputDecoration(
                             hintText: 'TYPE YOUR PASSWORD',
-                            hintStyle: TextStyle(fontSize: s10 * .8)),
+                            hintStyle: TextStyle(fontSize: s12)),
                       ),
                     ),
                     SizedBox(height: s20),
                     Text(
                       'Name',
-                      style: GoogleFonts.roboto(fontSize: s12),
+                      style: GoogleFonts.roboto(fontSize: s16),
                     ),
                     SizedBox(
-                      height: s25,
+                      height: s10 * 4,
                       child: TextFormField(
                         decoration: InputDecoration(
                             hintText: 'TYPE YOUR PASSWORD',
-                            hintStyle: TextStyle(fontSize: s10 * .8)),
+                            hintStyle: TextStyle(fontSize: s12)),
                       ),
                     ),
                   ],
@@ -120,25 +121,20 @@ class _SignInPageState extends State<SignInPage> {
               right: 0,
               top: s10 * 49.5,
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: s10 * 8),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
+                  padding: EdgeInsets.symmetric(horizontal: s10 * 8),
                   child: SizedBox(
                     height: s10 * 4.8,
-                    child: ElevatedButton(
-                        // minWidth: double.minPositive,
-                        // color: kMainColor,
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HomePage(),
-                              ));
-                        },
-                        child: Text('Sign In'.toUpperCase())),
-                  ),
-                ),
-              ))
+                    child: CustomButton(
+                      text: 'Sign in',
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomePage(),
+                            ));
+                      },
+                    ),
+                  )))
         ],
       ),
     );
