@@ -16,6 +16,7 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
+    // print(MediaQuery.of(context).size.height);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -59,9 +60,9 @@ class _SignInPageState extends State<SignInPage> {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: s25),
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: s25),
+                padding: EdgeInsets.symmetric(horizontal: s20),
                 height: s10 * 36.5,
-                width: screenWidth,
+                // width: screenWidth,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
@@ -125,6 +126,8 @@ class _SignInPageState extends State<SignInPage> {
                   child: SizedBox(
                     height: s10 * 4.8,
                     child: CustomButton(
+                      color: Colors.amber,
+                      tclr: Colors.black,
                       text: 'Sign in',
                       onTap: () {
                         Navigator.push(

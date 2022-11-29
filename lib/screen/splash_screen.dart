@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:blood_donor/dimension/dimension.dart';
+import 'package:blood_donor/screen/show_all_page.dart';
 import 'package:blood_donor/screen/signin_page.dart';
 import 'package:blood_donor/utls/const.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => SignInPage(),
+            builder: (context) => ShowAllPage(),
           )),
     );
   }
