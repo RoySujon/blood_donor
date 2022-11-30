@@ -2,6 +2,7 @@ import 'package:blood_donor/dimension/dimension.dart';
 import 'package:blood_donor/screen/homepage.dart';
 import 'package:blood_donor/screen/widget/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../utls/const.dart';
@@ -16,6 +17,9 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: Colors.white));
     // print(MediaQuery.of(context).size.height);
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -126,11 +130,11 @@ class _SignInPageState extends State<SignInPage> {
                   child: SizedBox(
                     height: s10 * 4.8,
                     child: CustomButton(
-                      color: Colors.amber,
-                      tclr: Colors.black,
+                      color: kMainColor,
+                      tclr: Colors.white,
                       text: 'Sign in',
                       onTap: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                               builder: (context) => HomePage(),
