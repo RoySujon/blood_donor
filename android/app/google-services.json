@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "233913664797",
-    "project_id": "blood-donor-91267",
-    "storage_bucket": "blood-donor-91267.appspot.com"
+    "project_number": "801104735966",
+    "project_id": "roktim-3d174",
+    "storage_bucket": "roktim-3d174.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:233913664797:android:a2a2db3b42cee583598df4",
+        "mobilesdk_app_id": "1:801104735966:android:21c14fb1105b15bfb31c4f",
         "android_client_info": {
           "package_name": "com.example.blood_donor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "233913664797-7s14ef5230lfma11pqgpjelglpo1ien8.apps.googleusercontent.com",
+          "client_id": "801104735966-t14f7g4t575jol8anj7qln054g3u4nc9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blood_donor",
+            "certificate_hash": "6192bd46a54d6ca85bd539d060e8e30d1b17d85d"
+          }
+        },
+        {
+          "client_id": "801104735966-s23u6jha9uc796sjvo4du66egu6vm9i3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAOT_WedbaKyS6o6NDlW4hVAsY_y2ZaNJs"
+          "current_key": "AIzaSyBppTSjX91NvdGUNK8DQVkmGqz7xq9k8ss"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "233913664797-7s14ef5230lfma11pqgpjelglpo1ien8.apps.googleusercontent.com",
+              "client_id": "801104735966-s23u6jha9uc796sjvo4du66egu6vm9i3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
