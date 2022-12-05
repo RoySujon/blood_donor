@@ -16,13 +16,13 @@ class _BloodDonorDetailsState extends State<BloodDonorDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        titleSpacing: 0,
+
         // automaticallyImplyLeading: false,
         // centerTitle: true,
         title: Padding(
           padding: EdgeInsets.only(left: 0),
           child: Text(
-            'All DONORS',
+            'Donor Details',
             style: TextStyle(fontSize: s16, fontWeight: FontWeight.w400),
           ),
         ),
@@ -68,12 +68,12 @@ class _BloodDonorDetailsState extends State<BloodDonorDetails> {
                     ],
                   ),
                   SizedBox(height: s50),
-                  Image.asset(
-                    'assets/images/map2.png',
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                    height: s10 * 14,
-                  )
+                  // Image.asset(
+                  //   'assets/images/map2.png',
+                  //   width: double.infinity,
+                  //   fit: BoxFit.cover,
+                  //   height: s10 * 14,
+                  // )
                 ],
               ),
             ),

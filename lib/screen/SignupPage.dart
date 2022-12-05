@@ -1,27 +1,37 @@
-import 'package:blood_donor/dimension/dimension.dart';
-import 'package:blood_donor/screen/homepage.dart';
+import 'package:blood_donor/firebase_classes/check_user_state.dart';
+import 'package:blood_donor/screen/signin_page.dart';
 import 'package:blood_donor/screen/widget/custom_button.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_signin_button/button_list.dart';
+import 'package:flutter_signin_button/button_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../firebase_classes/check_user_state.dart';
+import '../dimension/dimension.dart';
+import '../firebase_classes/authentication.dart';
 import '../utls/const.dart';
-import 'SignupPage.dart';
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({Key? key}) : super(key: key);
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    checkUserState(context);
-    super.initState();
+class _SignupPageState extends State<SignupPage> {
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  Future addUser() async {
+    CollectionReference _userInfo =
+        await FirebaseFirestore.instance.collection("register");
+
+    _userInfo.add(({
+      "name": nameController.text,
+      "email": emailController.text,
+    }));
   }
 
   @override
@@ -98,11 +108,25 @@ class _SignInPageState extends State<SignInPage> {
                       padding: EdgeInsets.only(top: s10 * 4.2),
                       child: Center(
                           child: Text(
-                        'Login'.toUpperCase(),
+                        'Sign Up'.toUpperCase(),
                         style: GoogleFonts.roboto(fontSize: s20),
                       )),
                     ),
-                    SizedBox(height: s50),
+                    SizedBox(height: s20),
+                    Text(
+                      'Full Name',
+                      style: GoogleFonts.roboto(fontSize: s16),
+                    ),
+                    SizedBox(
+                      height: s10 * 4,
+                      child: TextFormField(
+                        controller: nameController,
+                        decoration: InputDecoration(
+                            hintText: 'Enter your full name',
+                            hintStyle: TextStyle(fontSize: s12)),
+                      ),
+                    ),
+                    SizedBox(height: s20),
                     Text(
                       'Email',
                       style: GoogleFonts.roboto(fontSize: s16),
@@ -110,6 +134,7 @@ class _SignInPageState extends State<SignInPage> {
                     SizedBox(
                       height: s10 * 4,
                       child: TextFormField(
+                        controller: emailController,
                         decoration: InputDecoration(
                             hintText: 'Enter your email',
                             hintStyle: TextStyle(fontSize: s12)),
@@ -123,6 +148,7 @@ class _SignInPageState extends State<SignInPage> {
                     SizedBox(
                       height: s10 * 4,
                       child: TextFormField(
+                        controller: passwordController,
                         decoration: InputDecoration(
                             hintText: 'Enter your password',
                             hintStyle: TextStyle(fontSize: s12)),
@@ -144,37 +170,78 @@ class _SignInPageState extends State<SignInPage> {
                     child: CustomButton(
                       color: kMainColor,
                       tclr: Colors.white,
-                      text: 'Sign in',
+                      text: 'Sign Up',
                       onTap: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomePage(),
-                            ));
+                        //adding data from signup textFormField to firestoreDatabase
+                        addUser();
+                        //checking if user is logged in or logged out
+                        checkUserState(context);
+                        print("signup button clicked");
+                        var snackBar = SnackBar(
+                            content: Text(
+                                'Registered with ${emailController.text}'));
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+                        MyAuthentication fAuth = MyAuthentication();
+                        var userEmail = emailController.text;
+                        var userPassword = passwordController.text;
+                        fAuth.signup(userEmail, userPassword);
                       },
                     ),
                   ))),
-
+          Positioned(
+              bottom: s100 + 80,
+              left: 0,
+              right: 0,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "OR,",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              )),
+          Positioned(
+            bottom: s100 + 20,
+            left: 0,
+            right: 0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SignInButton(
+                  Buttons.GoogleDark,
+                  text: "Sign Up with Google",
+                  elevation: 15,
+                  onPressed: () {
+                    MyAuthentication myGoogleAuthentication =
+                        MyAuthentication();
+                    myGoogleAuthentication.signInWithGoogle(context);
+                  },
+                )
+              ],
+            ),
+          ),
           Positioned(
             left: 0,
             right: 0,
-            bottom: s10 * 15,
+            bottom: s100 - 40,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Don't have an account?",
+                  "Already Registerd?",
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(builder: (context) => SignupPage()),
+                        MaterialPageRoute(builder: (context) => SignInPage()),
                         (Route<dynamic> route) => false);
                   },
                   child: Text(
-                    " Signup",
+                    " Login",
                     style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
@@ -184,15 +251,6 @@ class _SignInPageState extends State<SignInPage> {
               ],
             ),
           )
-
-          //       Row(
-          //         children: [
-          //           Divider(
-          //   color: Colors.black
-          // ),
-
-          //         ],
-          //       )
         ],
       ),
     );

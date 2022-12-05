@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'package:blood_donor/dimension/dimension.dart';
-import 'package:blood_donor/screen/donor_details.dart';
-import 'package:blood_donor/screen/edit_donor_details_page.dart';
-import 'package:blood_donor/screen/show_all_page.dart';
 import 'package:blood_donor/screen/signin_page.dart';
+import 'package:blood_donor/screen/user_profile.dart';
 import 'package:blood_donor/utls/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
     Timer(
-      Duration(milliseconds: 1500),
+      Duration(milliseconds: 800),
       () => Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -47,7 +45,8 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             SizedBox(height: s10),
             HeadingText(
-              'Blood Donor'.toUpperCase(),
+              'রক্তিম',
+              // .toUpperCase(),
               fs: s10 * 4,
               clr: Colors.white,
             )
