@@ -38,7 +38,16 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
   flutter_svg: ^1.1.6
-  get: any
+  get: ^4.6.5
+  firebase_core: ^2.3.0
+  firebase_auth: ^4.1.4
+  cloud_firestore: ^4.1.0
+  curved_navigation_bar: ^1.0.3
+  firebase_storage: ^11.0.6
+  image_picker: ^0.8.6
+  cached_network_image: ^3.2.3
+  flutter_signin_button: ^2.0.0
+  google_sign_in: ^5.4.2
 
 dev_dependencies:
   flutter_test:
@@ -66,7 +75,6 @@ flutter:
   assets:
     - assets/images/
     - assets/logos/
-    - assets/icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

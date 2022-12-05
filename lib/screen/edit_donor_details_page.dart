@@ -17,7 +17,7 @@ class _EditDonorDetailsState extends State<EditDonorDetails> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        titleSpacing: 0,
+
         title: Padding(
           padding: EdgeInsets.only(left: 0),
           child: Text(
@@ -69,12 +69,12 @@ class _EditDonorDetailsState extends State<EditDonorDetails> {
                     ],
                   ),
                   SizedBox(height: s50),
-                  Image.asset(
-                    'assets/images/map2.png',
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                    height: s10 * 14,
-                  )
+                  // Image.asset(
+                  //   'assets/images/map2.png',
+                  //   width: double.infinity,
+                  //   fit: BoxFit.cover,
+                  //   height: s10 * 14,
+                  // )
                 ],
               ),
             ),
