@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         systemNavigationBarColor: Colors.white));
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Roktim App',
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
